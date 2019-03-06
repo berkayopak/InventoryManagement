@@ -1,18 +1,13 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-//var cookieParser = require('cookie-parser');
+var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const bodyParser = require('body-parser');
 var cors = require('cors');
 
 var productsRouter = require('./routes/products');
 
 var app = express();
-
-const multer = require('multer');
-
-var upload = multer({ dest: 'uploads/' });
 
 app.use(cors());
 // view engine setup
@@ -22,7 +17,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-//app.use(cookieParser());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var models = require('./models');
