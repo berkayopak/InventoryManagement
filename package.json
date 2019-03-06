@@ -1,0 +1,26 @@
+{
+  "name": "InventoryManagementGitHub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd inventory-management-client && npm install && npm start",
+    "server": "cd inventory-management-server/server && npm install && npm start",
+    "start": "concurrently - kill-others \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berkayopak/InventoryManagement.git"
+  },
+  "keywords": [],
+  "author": "Berkay Opak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berkayopak/InventoryManagement/issues"
+  },
+  "homepage": "https://github.com/berkayopak/InventoryManagement#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
