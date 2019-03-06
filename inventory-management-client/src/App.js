@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {
+    Table, Input, Button, Popconfirm, Form,
+} from 'antd';
 
 class App extends Component {
   render() {
