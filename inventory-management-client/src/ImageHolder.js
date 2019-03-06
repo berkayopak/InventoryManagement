@@ -19,10 +19,6 @@ function beforeUpload(file) {
     return isJPG && isLt2M;
 }
 
-function action(file) {
-
-}
-
 export default class Avatar extends React.Component {
     state = {
         loading: false,
