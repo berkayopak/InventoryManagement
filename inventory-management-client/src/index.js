@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import "antd/dist/antd.css";
 import {
-    Table, Input, Button, Popconfirm, Form, Divider, notification, Icon
+    Table, Input, Button, Popconfirm, Form, Divider, notification, InputNumber
 } from 'antd';
 
 import ImageHolder from './ImageHolder';
@@ -114,7 +114,19 @@ class EditableTable extends React.Component {
         }, {
             title: 'price',
             dataIndex: 'price',
-            editable: true,
+            render: (text, record) => (
+                this.state.dataSource.length >= 1
+                    ? (
+                        <div>
+                        <InputNumber
+                            defaultValue={record.price}
+                            formatter={value => `₺ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                            parser={value => value.replace(/\$\s?|(,*)/g, '')}
+                            onChange={value => record.price = value}
+                        />
+                        </div>
+                    ) : null
+            ),
         }, {
             title: 'description',
             dataIndex: 'description',
@@ -253,7 +265,7 @@ class EditableTable extends React.Component {
         return (
             <div>
                 <Button onClick={this.handleAdd} type="primary" style={{ marginBottom: 16 }}>
-                    Add a row
+                    Add a product
                 </Button>
                 <Table
                     components={components}
