@@ -33,7 +33,6 @@ export default class Avatar extends React.Component {
     };
 
     handleChange = (info) => {
-        console.log("handleChange entered!");
         if (info.file.status === 'uploading') {
             this.setState({ loading: true });
             info.file.status = 'done';

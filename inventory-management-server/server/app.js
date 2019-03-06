@@ -34,10 +34,6 @@ models.sequelize.sync().then(function () {
 
 app.use('/products', productsRouter);
 
-app.post('/upload', upload.single('avatar'),(req, res, next) => {
-    console.log("UPLOAD FILE appjs: " + req.file);
-});
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

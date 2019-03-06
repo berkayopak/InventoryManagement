@@ -235,7 +235,6 @@ class EditableTable extends React.Component {
                     dataSource: products,
                     count: products.length,
                 });
-                console.log("Count: "+this.state.count);
             })
     }
 
