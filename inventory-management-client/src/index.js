@@ -120,7 +120,7 @@ class EditableTable extends React.Component {
                         <div>
                         <InputNumber
                             defaultValue={record.price}
-                            formatter={value => `₺ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                            formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                             parser={value => value.replace(/\$\s?|(,*)/g, '')}
                             onChange={value => record.price = value}
                         />
